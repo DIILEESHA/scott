@@ -1,0 +1,80 @@
+.maha {
+  text-transform: uppercase;
+  font-size: 65px;
+  z-index: 1;
+  position: relative;
+}
+
+.kk {
+  top: 50px !important;
+}
+
+.image-wrappers {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.r_img {
+  width: 100%;
+  height: 100%;
+  object-position: 19% center;
+  object-fit: cover;
+
+  display: block;
+}
+
+.image-wrappers::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40%;
+  width: 100%;
+  background: linear-gradient(to bottom, #fff, transparent);
+  z-index: 0;
+}
+.mal {
+  display: flex;
+}
+.plyan {
+  display: flex;
+  flex-direction: column;
+  margin-top: -40px;
+  margin-bottom: -30px;
+}
+.plyan {
+  display: none;
+}
+
+.two {
+  gap: 50px;
+}
+
+.ui {
+  padding: 80px 20px;
+}
+.pala {
+  background-image: url("https://i.pinimg.com/736x/16/82/7f/16827ffc8805ca3d6644890fd0dad893.jpg");
+}
+
+@media screen and (max-width: 800px) {
+  .plyan {
+    display: flex;
+    flex-direction: column;
+    margin-top: -40px;
+    margin-bottom: -30px;
+  }
+
+  .nanaa{
+    height: 60vh;
+  }
+  .boss{
+    margin-top: -70px!important;
+  }
+  .bos{
+    margin-top: -100px!important;
+    margin-bottom: -50px!important;
+  }
+}

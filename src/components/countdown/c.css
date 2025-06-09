@@ -1,0 +1,128 @@
+/* Base Mobile Styles */
+.ball {
+  font-size: 40px !important;
+}
+
+.tcx {
+  padding-bottom: 30px;
+}
+
+.doily {
+  padding: 60px 30px !important;
+}
+
+.pala {
+  background-image: url("https://i.imgur.com/s3uqQxz.jpeg") !important;
+  background-size: cover;
+  background-position: center 34% !important;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .ball {
+    font-size: 50px !important;
+  }
+
+  .tcx {
+    padding-bottom: 40px;
+  }
+
+  .doily {
+    padding: 80px 50px !important;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .ball {
+    font-size: 70px !important;
+  }
+
+  .tcx {
+    padding-bottom: 50px;
+  }
+
+  .doily {
+    padding: 100px 80px !important;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .ball {
+    font-size: 90px !important;
+  }
+
+  .tcx {
+    padding-bottom: 60px;
+  }
+
+  .doily {
+    padding: 130px 120px !important;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .ball {
+    font-size: 120px !important;
+  }
+
+  .tcx {
+    padding-bottom: 80px;
+  }
+
+  .doily {
+    padding: 170px 180px !important;
+  }
+}
+
+/* 2K and 4K displays */
+@media (min-width: 2000px) {
+  .ball {
+    font-size: 150px !important;
+  }
+
+  .tcx {
+    padding-bottom: 100px;
+  }
+
+  .doily {
+    padding: 200px 220px !important;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-width: 992px) {
+  .ball {
+    font-size: 60px !important;
+  }
+
+  .doily {
+    padding: 100px 80px !important;
+  }
+}
+
+/* Short height devices */
+@media (max-height: 700px) {
+  .ball {
+    font-size: 80px !important;
+  }
+
+  .doily {
+    padding: 100px 80px !important;
+  }
+
+  .tcx {
+    padding-bottom: 40px;
+  }
+}
+
+/* High DPI/Retina displays */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi) {
+  .pala {
+    /* Optional: Use higher resolution background image */
+    /* background-image: url("high-res-version.jpg") !important; */
+  }
+}

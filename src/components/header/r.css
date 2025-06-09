@@ -1,0 +1,223 @@
+/* Base Mobile Styles */
+.r_grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding: 40px 20px;
+}
+
+.jio {
+  font-family: "hel";
+  width: 80%;
+  text-align: center;
+  font-size: 16px;
+  line-height: 150%;
+  margin-top: 10px;
+}
+
+.r_sub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.r_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40%;
+  width: 100%;
+  background: linear-gradient(to bottom, #fff, transparent);
+  z-index: 0;
+}
+
+.r_title {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  z-index: 1;
+  font-size: 32px;
+  text-align: center;
+  font-family: "silk";
+  font-weight: 300;
+}
+
+.rsvp_btn {
+  background-color: #000;
+  color: #fff;
+  font-family: "hel";
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .r_grid {
+    padding: 50px 30px;
+    gap: 50px;
+  }
+
+  .r_title {
+    font-size: 38px;
+    margin-bottom: 15px;
+  }
+
+  .image-wrapper {
+    height: 55vh;
+  }
+
+  .rsvp_btn {
+    padding: 13px 26px;
+    font-size: 15px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .r_grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    padding: 60px 40px;
+  }
+
+  .image-wrapper {
+    width: 80%;
+    height: 60vh;
+  }
+
+  .r_title {
+    font-size: 25px!important;
+    margin-bottom: -20px;
+  }
+
+  .rsvp_btn {
+    margin-top: 25px;
+    padding: 14px 28px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .r_grid {
+    gap: 70px;
+    padding: 70px 60px;
+  }
+
+  .image-wrapper {
+    width: 75%;
+    height: 65vh;
+  }
+
+  .r_title {
+    font-size: 55px;
+    margin-bottom: -30px;
+  }
+
+  .rsvp_btn {
+    padding: 15px 30px;
+    letter-spacing: 1.1px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .r_grid {
+    gap: 90px;
+    padding: 80px 100px;
+  }
+
+  .image-wrapper {
+    width: 67%;
+    height: 70vh;
+  }
+
+  .r_title {
+    font-size: 65px;
+    margin-bottom: -40px;
+  }
+}
+
+/* 2K and 4K displays */
+@media (min-width: 2000px) {
+  .r_grid {
+    padding: 100px 150px;
+    gap: 120px;
+  }
+
+  .image-wrapper {
+    width: 60%;
+    height: 80vh;
+  }
+
+  .r_title {
+    font-size: 80px;
+    margin-bottom: -50px;
+  }
+
+  .rsvp_btn {
+    padding: 18px 36px;
+    font-size: 18px;
+  }
+}
+
+/* Landscape orientation adjustments for tablets */
+@media (min-width: 768px) and (orientation: landscape) {
+  .image-wrapper {
+    height: 80vh;
+  }
+
+  .r_grid {
+    gap: 50px;
+  }
+}
+
+/* Short height devices */
+@media (max-height: 700px) and (min-width: 992px) {
+  .image-wrapper {
+    height: 60vh;
+  }
+  
+
+  .r_title {
+    margin-bottom: -20px;
+    font-size: 50px;
+  }
+
+  .rsvp_btn {
+    margin-top: 15px;
+  }
+}
+
+/* High DPI devices */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi) {
+  .r_img {
+    /* Optional: Serve higher resolution image */
+    /* background-image: url('high-res-version.jpg'); */
+  }
+
+  .rsvp_btn {
+    font-weight: 350; /* Slightly bolder for better readability */
+  }
+}

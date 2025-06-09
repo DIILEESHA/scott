@@ -1,0 +1,538 @@
+.gift-registry {
+  position: relative;
+  background-color: var(--bc);
+  color: #333;
+  min-height: 100vh;
+}
+
+/* Add these styles to your existing GiftRegistry.css */
+
+.auth-status {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.uixz {
+  margin-top: -100px;
+}
+
+.user-info {
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  /* justify-content: flex-end; */
+}
+
+.auth-status {
+  padding: 20px 50px !important;
+}
+
+.user-display {
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  /* padding: 10px 50px; */
+  transition: background-color 0.3s;
+  display: flex;
+  /* justify-content: flex-end; */
+  width: 100%;
+  align-items: center;
+}
+
+.d {
+  width: fit-content;
+}
+
+.opz {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  flex-direction: column;
+}
+
+.user-display:hover {
+  background-color: #f5f5f5;
+}
+
+/* Rest of your existing CSS remains the same */
+
+.gift-registry-img {
+  position: fixed;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  z-index: 0;
+}
+.modal-details-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.modal-details-image {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.modal-details-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-details-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-price {
+  font-family: "hel", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+
+.modal-description {
+  margin-top: 20px;
+}
+
+.modal-description h3 {
+  font-family: "hel", sans-serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.modal-description p {
+  font-family: "hel", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  width: 100%;
+}
+
+.modal-purchase-details {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #d1c7b7;
+}
+
+.modal-purchase-details h3 {
+  font-family: "hel", sans-serif;
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.modal-purchase-details p {
+  font-family: "hel", sans-serif;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.modal-purchase-details strong {
+  color: #000;
+  margin-right: 8px;
+}
+.gift-registry-content {
+  position: relative;
+  z-index: 10;
+  padding: 100px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gift-registry-title {
+  text-align: center;
+  font-family: "silk", serif;
+  font-size: 65px;
+  font-weight: 300;
+  color: #000;
+  margin-bottom: 40px;
+}
+
+.gift-registry-description {
+  font-family: "hel", sans-serif;
+  line-height: 150%;
+  font-size: 18px;
+  text-align: center;
+  margin: 40px 0;
+  color: #000;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.product-card {
+  background-color: #efecea;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #bdb7b7;
+  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
+  /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+}
+
+.product-card:hover {
+  /* transform: translateY(-5px); */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.product-details {
+  padding: 10px;
+}
+
+.product-name {
+  font-family: "silk", serif;
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #000;
+  gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.reservation-info h4 {
+  font-family: "hel";
+  margin-bottom: 10px;
+}
+
+.reservation-info p {
+  font-family: "hel";
+  margin-bottom: 10px;
+}
+
+.product-status {
+  display: inline-block;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 20px;
+  font-family: "hel", sans-serif;
+  font-size: 14px;
+}
+
+.status-available {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-reserved {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-purchased {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.product-description {
+  font-family: "hel", sans-serif;
+  line-height: 150%;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.product-price {
+  font-family: "hel", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.product-purchased-by {
+  font-family: "hel", sans-serif;
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.product-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-family: "hel", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #333;
+  padding: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-family: "hel";
+}
+
+.btn-primary:hover {
+  background-color: #9c8a76;
+}
+
+.btn-secondary {
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 10px;
+  font-family: "hel";
+  border: 1px solid #ddd;
+}
+
+.btn-secondary:hover {
+  background-color: #e2e6ea;
+}
+
+.btn-dashed {
+  background-color: transparent;
+  border: 1px dashed #333;
+  color: #333;
+}
+.form-group textarea {
+  padding: 30px 10px;
+  font-family: "hel";
+}
+.btn-dashed:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.add-product-btn {
+  display: block;
+  margin: 0 auto 40px;
+  padding: 12px 30px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: "hel", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.add-product-btn:hover {
+  background-color: #9c8a76;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.fgds {
+  font-family: "hel";
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #efecea;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-title {
+  font-family: "silk", serif;
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #000;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.9);
+
+  /* border-radius: 100%; */
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  /* font-size: 34px; */
+  cursor: pointer;
+  color: #fff;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-family: "hel";
+  margin-bottom: 10px;
+}
+.form-group input {
+  padding: 10px;
+  border: 1px solid #999494;
+  font-family: "hel";
+}
+
+.vc {
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "hel", sans-serif;
+  font-size: 16px;
+  color: #000;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1c7b7;
+  border-radius: 5px;
+  font-family: "hel", sans-serif;
+  font-size: 16px;
+  background-color: #f9f7f5;
+  transition: border 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #b8a38d;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1c7b7;
+  border-radius: 5px;
+  font-family: "hel", sans-serif;
+  font-size: 16px;
+  background-color: #f9f7f5;
+  resize: vertical;
+  min-height: 120px;
+  transition: border 0.3s ease;
+}
+
+.form-textarea:focus {
+  outline: none;
+  border-color: #b8a38d;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-spinner p {
+  text-align: center;
+  font-family: "hel" !important;
+}
+
+.handle {
+  font-size: 16px;
+  width: 80%;
+  word-wrap: break-word;
+}
+
+.sxc {
+  background-color: #000;
+  color: #fff;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .gift-registry-content {
+    padding: 60px 20px;
+  }
+
+  .uixz {
+    margin-top: -10px;
+  }
+
+  .gift-registry-title {
+    font-size: 48px;
+  }
+
+  .auth-status {
+    padding: 20px !important;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    padding: 25px;
+  }
+}

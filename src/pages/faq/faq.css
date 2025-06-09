@@ -1,0 +1,219 @@
+/* Base Styles */
+.faq_cover {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}.faq_category_title {
+  font-family: "silk", serif;
+  font-size: 32px;
+  color: #000;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d1c7b7;
+}
+
+.faq_cover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /* background-image: url("https://i.pinimg.com/736x/ec/d9/0d/ecd90dcaafdfb3cf6639098da9b44b54.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  z-index: 1;
+}
+
+.faq_title {
+  font-size: 65px;
+  font-family: "silk";
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 0 auto;
+  text-align: center;
+  width: 60%;
+  line-height: 150%;
+  position: relative;
+  z-index: 2;
+}
+
+.faq_container {
+  padding: 40px;
+  background-color: var(--bc);
+}
+
+.faq_card_section {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faq_top {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+.faq_qs {
+  font-family: "hel";
+  font-weight: 900;
+  font-size: 20px;
+  margin: 0;
+  flex: 1;
+}
+
+.faq_ans_p {
+  font-family: "hel";
+  font-weight: 300;
+  line-height: 150%;
+  font-size: 17px;
+  opacity: 0.8;
+  margin: 20px 0;
+}
+
+.faq_sub_card {
+  margin-bottom: 20px;
+}
+
+.line {
+  margin: 30px 0;
+  background-color: #9f9a9a;
+  height: 1px;
+  width: 100%;
+}
+
+.guideline-section {
+  margin-bottom: 20px;
+}
+
+.guideline-section h4 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.guideline-section ul {
+  margin-left: 20px;
+  padding-left: 15px;
+}
+
+.guideline-section li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* Media Queries */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .faq_cover {
+    height: 40vh;
+  }
+
+  .faq_container {
+  }
+
+  .faq_title {
+    font-size: 32px;
+    width: 90%;
+    line-height: 120%;
+  }
+
+  .faq_container {
+    padding: 20px;
+  }
+
+  .faq_card_section {
+    padding: 20px 0;
+  }
+
+  .faq_qs {
+    font-size: 18px;
+  }
+
+  .faq_ans_p {
+    font-size: 16px;
+  }
+
+  .line {
+    margin: 20px 0;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px - 768px) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  .faq_title {
+    font-size: 42px;
+    width: 80%;
+  }
+
+  .faq_container {
+    padding: 30px;
+  }
+
+  .faq_card_section {
+    padding: 30px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px - 992px) */
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  .faq_title {
+    font-size: 50px;
+    width: 70%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px - 1200px) */
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+  .faq_title {
+    font-size: 55px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1201px) {
+  /* Keep base styles */
+}
+
+/* Orientation-specific adjustments */
+@media screen and (orientation: landscape) and (max-width: 900px) {
+  .faq_cover {
+    height: 100vh;
+  }
+}
+
+/* High-resolution displays */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi) {
+  .faq_title {
+    font-weight: 350; /* Slightly bolder for retina */
+  }
+}
+
+/* Print styles */
+@media print {
+  .faq_cover::before {
+    filter: none;
+  }
+
+  .faq_title {
+    color: #000;
+    font-size: 36px;
+  }
+
+  .faq_container {
+    padding: 20px;
+  }
+
+  .faq_sub_card {
+    page-break-inside: avoid;
+  }
+}

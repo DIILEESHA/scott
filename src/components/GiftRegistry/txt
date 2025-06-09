@@ -1,0 +1,607 @@
+import React, { useState, useEffect } from 'react';
+import { db } from '../../../firebaseConfig';
+import { getDocs, collection, doc, updateDoc } from 'firebase/firestore';
+import './GiftRegistry.css';
+
+const GiftRegistry = ({ userId }) => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [showPurchaseModal, setShowPurchaseModal] = useState(false);
+  const [showDetailsModal, setShowDetailsModal] = useState(false);
+  const [currentProduct, setCurrentProduct] = useState(null);
+  const [formData, setFormData] = useState({
+    buyerName: '',
+    buyerEmail: '',
+    buyerPhone: '',
+    message: ''
+  });
+  const [purchasing, setPurchasing] = useState(false);
+
+  const fetchProducts = async () => {
+    try {
+      setLoading(true);
+      const querySnapshot = await getDocs(collection(db, 'products'));
+      const productData = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setProducts(productData);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      alert('Failed to fetch products');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const truncateDescription = (desc) => {
+    return desc.length > 100 ? `${desc.substring(0, 100)}...` : desc;
+  };
+
+  const handleShowDetails = (product) => {
+    setCurrentProduct(product);
+    setShowDetailsModal(true);
+  };
+
+  const handleAction = async (action, product, e) => {
+    e.stopPropagation(); // Prevent triggering the card click
+    try {
+      const productRef = doc(db, 'products', product.id);
+      
+      if (action === 'reserve') {
+        await updateDoc(productRef, {
+          status: 'reserved',
+          reservedBy: userId
+        });
+        alert('Product reserved successfully!');
+      } else if (action === 'release') {
+        await updateDoc(productRef, {
+          status: 'available',
+          reservedBy: ''
+        });
+        alert('Product released successfully!');
+      } else if (action === 'purchase') {
+        setCurrentProduct(product);
+        setShowPurchaseModal(true);
+        return;
+      }
+      
+      fetchProducts();
+    } catch (error) {
+      console.error('Error updating product:', error);
+      alert('Failed to update product status');
+    }
+  };
+
+  const handlePurchaseSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setPurchasing(true);
+      const productRef = doc(db, 'products', currentProduct.id);
+      
+      await updateDoc(productRef, {
+        status: 'purchased',
+        purchasedBy: userId,
+        purchaseDetails: {
+          ...formData,
+          purchaseDate: new Date().toISOString()
+        }
+      });
+      
+      alert('Product purchased successfully!');
+      setShowPurchaseModal(false);
+      setFormData({
+        buyerName: '',
+        buyerEmail: '',
+        buyerPhone: '',
+        message: ''
+      });
+      fetchProducts();
+    } catch (error) {
+      console.error('Error purchasing product:', error);
+      alert('Failed to complete purchase');
+    } finally {
+      setPurchasing(false);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const getStatusClass = (status) => {
+    switch (status) {
+      case 'reserved': return 'status-reserved';
+      case 'purchased': return 'status-purchased';
+      default: return 'status-available';
+    }
+  };
+
+  const getStatusText = (status) => {
+    switch (status) {
+      case 'reserved': return 'Reserved';
+      case 'purchased': return 'Purchased';
+      default: return 'Available';
+    }
+  };
+
+  return (
+    <div className="gift-registry">
+   
+      
+      <div className="gift-registry-content">
+        <h1 className="gift-registry-title">Gift Registry</h1>
+        <p className="gift-registry-description">
+          We're so grateful for your thoughtfulness in celebrating our special day with us. 
+          If you'd like to contribute a gift, please browse our registry below.
+        </p>
+        
+        {userId === 'admin' && (
+          <button 
+            className="add-product-btn"
+            onClick={() => alert('Add product functionality would go here')}
+          >
+            Add New Product
+          </button>
+        )}
+
+        {loading ? (
+          <div style={{ textAlign: 'center', padding: '50px' }}>
+            <div className="loading-spinner"></div>
+            <p>Loading gifts...</p>
+          </div>
+        ) : products.length === 0 ? (
+          <div style={{ textAlign: 'center', padding: '50px' }}>
+            <p>No products available in the registry yet.</p>
+          </div>
+        ) : (
+          <div className="products-grid">
+            {products.map(product => (
+              <div 
+                key={product.id} 
+                className="product-card"
+                onClick={() => handleShowDetails(product)}
+              >
+                <img 
+                  src={product.image || 'https://via.placeholder.com/300'} 
+                  alt={product.name} 
+                  className="product-image" 
+                />
+                <div className="product-details">
+                  <div className="product-name">
+                    {product.name}
+                    <span className={`product-status ${getStatusClass(product.status)}`}>
+                      {getStatusText(product.status)}
+                    </span>
+                  </div>
+                  <p className="product-description">
+            {`${product.description.slice(0, 20)}...`}
+
+                  </p>
+                  <p className="product-price">Price: ${product.price}</p>
+                  
+                  {product.status === 'purchased' && product.purchaseDetails && (
+                    <p className="product-purchased-by">
+                      Purchased by: {product.purchaseDetails.buyerName}
+                    </p>
+                  )}
+
+                  <div className="product-actions">
+                    {product.status === 'available' ? (
+                      <button 
+                        className="btn btn-primary"
+                        onClick={(e) => handleAction('reserve', product, e)}
+                      >
+                        Reserve
+                      </button>
+                    ) : product.status === 'reserved' && product.reservedBy === userId ? (
+                      <>
+                        <button 
+                          className="btn btn-dashed"
+                          onClick={(e) => handleAction('release', product, e)}
+                        >
+                          Release
+                        </button>
+                        <button 
+                          className="btn btn-primary"
+                          onClick={(e) => handleAction('purchase', product, e)}
+                        >
+                          Purchase
+                        </button>
+                      </>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Product Details Modal */}
+      {showDetailsModal && currentProduct && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button 
+              className="modal-close" 
+              onClick={() => setShowDetailsModal(false)}
+            >
+              &times;
+            </button>
+            
+            <div className="modal-details-content">
+              <div className="modal-details-image">
+                <img 
+                  src={currentProduct.image || 'https://via.placeholder.com/500'} 
+                  alt={currentProduct.name} 
+                />
+              </div>
+              
+              <div className="modal-details-info">
+                <h2 className="modal-title">{currentProduct.name}</h2>
+                <div className={`product-status ${getStatusClass(currentProduct.status)}`}>
+                  {getStatusText(currentProduct.status)}
+                </div>
+                
+                <p className="modal-price">Price: ${currentProduct.price}</p>
+                
+                <div className="modal-description">
+                  <p className='handle'>{currentProduct.description}</p>
+                </div>
+                
+                {currentProduct.status === 'purchased' && currentProduct.purchaseDetails && (
+               <div></div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Purchase Modal */}
+      {showPurchaseModal && currentProduct && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button 
+              className="modal-close" 
+              onClick={() => setShowPurchaseModal(false)}
+            >
+              &times;
+            </button>
+            
+            <h2 className="modal-title">Purchase {currentProduct.name}</h2>
+            
+            <form onSubmit={handlePurchaseSubmit}>
+              <div className="form-group">
+                <label className="form-label">Your Full Name</label>
+                <input
+                  type="text"
+                  className="form-input"
+                  name="buyerName"
+                  value={formData.buyerName}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              
+              <div className="form-group">
+                <label className="form-label">Email Address</label>
+                <input
+                  type="email"
+                  className="form-input"
+                  name="buyerEmail"
+                  value={formData.buyerEmail}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              
+              <div className="form-group">
+                <label className="form-label">Phone Number</label>
+                <input
+                  type="tel"
+                  className="form-input"
+                  name="buyerPhone"
+                  value={formData.buyerPhone}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              
+              <div className="form-group">
+                <label className="form-label">Message (Optional)</label>
+                <textarea
+                  className="form-textarea"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                />
+              </div>
+              
+              <div className="modal-actions">
+                <button 
+                  type="button" 
+                  className="btn btn-secondary"
+                  onClick={() => setShowPurchaseModal(false)}
+                >
+                  Cancel
+                </button>
+                <button 
+                  type="submit" 
+                  className="btn btn-primary"
+                  disabled={purchasing}
+                >
+                  {purchasing ? (
+                    <>
+                      <span className="loading-spinner"></span>
+                      Processing...
+                    </>
+                  ) : 'Confirm Purchase'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default GiftRegistry;  import React, { useState } from 'react';
+import { Card, Button, Tag, Image, message, Modal, Form, Input } from 'antd';
+import { ShoppingCartOutlined, UndoOutlined, CheckOutlined } from '@ant-design/icons';
+import { doc, updateDoc } from 'firebase/firestore';
+import { db } from '../../../firebaseConfig';
+
+const ProductCard = ({ product, userId, isAdmin, refreshProducts }) => {
+  const [showPurchaseModal, setShowPurchaseModal] = useState(false);
+  const [showReserveModal, setShowReserveModal] = useState(false);
+  const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
+
+  const handleReserve = async (values) => {
+    try {
+      setLoading(true);
+      const productRef = doc(db, 'products', product.id);
+      
+      await updateDoc(productRef, {
+        status: 'reserved',
+        reservedBy: userId,
+        reservationDetails: {
+          reserverName: values.name,
+          reserverEmail: values.email,
+          reserverPhone: values.phone,
+          reservationDate: new Date().toISOString(),
+          message: values.message || '',
+        }
+      });
+      
+      message.success('Product reserved successfully!');
+      setShowReserveModal(false);
+      refreshProducts();
+    } catch (error) {
+      console.error('Error reserving product:', error);
+      message.error('Failed to reserve product');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleRelease = async () => {
+    try {
+      setLoading(true);
+      const productRef = doc(db, 'products', product.id);
+      
+      await updateDoc(productRef, {
+        status: 'available',
+        reservedBy: '',
+        reservationDetails: {}
+      });
+      
+      message.success('Product released successfully!');
+      refreshProducts();
+    } catch (error) {
+      console.error('Error releasing product:', error);
+      message.error('Failed to release product');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePurchase = async (values) => {
+    try {
+      setLoading(true);
+      const productRef = doc(db, 'products', product.id);
+      
+      await updateDoc(productRef, {
+        status: 'purchased',
+        purchasedBy: userId,
+        purchaseDetails: {
+          buyerName: values.name,
+          buyerEmail: values.email,
+          buyerPhone: values.phone,
+          purchaseDate: new Date().toISOString(),
+          message: values.message || '',
+        }
+      });
+      
+      message.success('Product purchased successfully!');
+      setShowPurchaseModal(false);
+      refreshProducts();
+    } catch (error) {
+      console.error('Error purchasing product:', error);
+      message.error('Failed to complete purchase');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getStatusTag = () => {
+    if (product.status === 'reserved') {
+      return product.reservedBy === userId ? (
+        <Tag color="orange">Reserved by you</Tag>
+      ) : (
+        <Tag color="orange">
+          Reserved by {product.reservationDetails?.reserverName || 'someone'}
+        </Tag>
+      );
+    } else if (product.status === 'purchased') {
+      return <Tag color="green">Purchased</Tag>;
+    }
+    return <Tag color="blue">Available</Tag>;
+  };
+
+  const renderActions = () => {
+    if (product.status === 'available') {
+      return (
+        <Button 
+          type="primary" 
+          icon={<ShoppingCartOutlined />}
+          onClick={() => setShowReserveModal(true)}
+        >
+          Reserve
+        </Button>
+      );
+    } else if (product.status === 'reserved' && (product.reservedBy === userId || isAdmin)) {
+      return (
+        <>
+          <Button 
+            icon={<UndoOutlined />}
+            onClick={handleRelease}
+            loading={loading}
+          >
+            Release
+          </Button>
+          <Button 
+            type="primary" 
+            icon={<CheckOutlined />}
+            onClick={() => setShowPurchaseModal(true)}
+            loading={loading}
+          >
+            Purchase
+          </Button>
+        </>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <>
+      <Card
+        hoverable
+        cover={
+          <Image
+            alt={product.name}
+            src={product.image || 'https://via.placeholder.com/300'}
+            height={200}
+            style={{ objectFit: 'cover' }}
+          />
+        }
+        actions={[renderActions()]}
+      >
+        <Card.Meta
+          title={<>{product.name} {getStatusTag()}</>}
+          description={
+            <>
+              <p>{product.description}</p>
+              <p><strong>Price: ${product.price}</strong></p>
+              {product.status === 'purchased' && product.purchaseDetails && (
+                <p>Purchased by: {product.purchaseDetails.buyerName}</p>
+              )}
+            </>
+          }
+        />
+      </Card>
+
+      {/* Reserve Modal */}
+      <Modal
+        title={`Reserve ${product.name}`}
+        visible={showReserveModal}
+        onCancel={() => setShowReserveModal(false)}
+        footer={null}
+      >
+        <Form form={form} onFinish={handleReserve}>
+          <Form.Item
+            name="name"
+            label="Your Name"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="email"
+            label="Email"
+            rules={[{ required: true, type: 'email' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="phone"
+            label="Phone"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item name="message" label="Message (Optional)">
+            <Input.TextArea />
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit" loading={loading}>
+              Confirm Reservation
+            </Button>
+          </Form.Item>
+        </Form>
+      </Modal>
+
+      {/* Purchase Modal */}
+      <Modal
+        title={`Purchase ${product.name}`}
+        visible={showPurchaseModal}
+        onCancel={() => setShowPurchaseModal(false)}
+        footer={null}
+      >
+        <Form form={form} onFinish={handlePurchase}>
+          <Form.Item
+            name="name"
+            label="Your Name"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="email"
+            label="Email"
+            rules={[{ required: true, type: 'email' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="phone"
+            label="Phone"
+            rules={[{ required: true }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item name="message" label="Message (Optional)">
+            <Input.TextArea />
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit" loading={loading}>
+              Confirm Purchase
+            </Button>
+          </Form.Item>
+        </Form>
+      </Modal>
+    </>
+  );
+};
+ i give you my requiremnt my website have gift registry section these gifts have reserved relaese purchase 3 modes if user add to reserve and fill the form its state change to reservedin firebase and another user cant relase it and reserved , if user reserved the product in the gift register section these user only can release the product and if these user relase the product other users can reserve it and these user reserve the product after shown btns reverse and purchase these user reserved the product other users shown in the product product reserved by these suername and after purchasing all btns hidden and shown purchased by username and , if user reserved the prouct hidden the relase btn to other users these btn shown only reserved person only i want to do these functionality usingreactjs and firebase can you doi it i give my codes a, but these codes not perform these requirement can you update it and works perfectly   these is my codes create correct full codes for my neew requiremnt please dont change ui design change requiremtn only

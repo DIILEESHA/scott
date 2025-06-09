@@ -1,0 +1,13 @@
+.videos {
+  height: 90vh;
+  width: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+.vg {
+}
+@media screen and (max-width:700px){
+    .videos{
+        height: auto;
+    }
+}
