@@ -40,7 +40,7 @@ const AdminDashboard = () => {
   const [showPasswordModal, setShowPasswordModal] = useState(true);
   const [activeTab, setActiveTab] = useState("gifts");
 
-  const ADMIN_PASSWORD = "Tyreese123"; // Change this
+  const ADMIN_PASSWORD = "123"; // Change this
 
   const productColumns = [
     {
