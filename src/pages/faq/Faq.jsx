@@ -33,123 +33,52 @@ const Faq = () => {
 
   const faqs = [
     {
-      category: "General Questions",
+      category: "About the Couple",
       questions: [
         {
-          question: "When is the wedding?",
-          answer: "Saturday, July 19th, 2025, at 3:30 PM AST.",
-        },
-        {
-          question: "Where will the ceremony and reception take place?",
+          question: "Why are you getting married?",
           answer:
-            "Hyatt Regency Trinidad, #1 Wrightson Road, Port of Spain, Trinidad and Tobago.",
+            "Scott is the love of my life. After twelve years together, our love has grown deeper through every joy and challenge. We are each other's home and best partners in life.",
         },
         {
-          question: "What is the dress code?",
-          answer: (
-            <>
-              <p>Elegant Attire.</p>
-              <p>Men: Tuxedo, formal suit, or dress shirt.</p>
-              <p>Women: Evening gown or refined cocktail dress.</p>
-            </>
-          ),
-        },
-        {
-          question: "What time should I arrive?",
+          question: "What is the meaning behind your wedding?",
           answer:
-            "Please arrive by 3:15 PM to ensure you are seated before the ceremony begins.",
-        },
-        {
-          question: "Is parking provided?",
-          answer:
-            "Yes, parking is available at Hyatt's car park. Additional information will be provided closer to the date or on the day of the wedding.",
+            "We are getting married under God to unite and move forward in a new chapter of our life—to celebrate with those who have supported us throughout this journey.",
         },
       ],
     },
     {
-      category: "Ceremony & Reception Details",
+      category: "Wedding Day Info",
       questions: [
         {
-          question: "Is the ceremony indoors or outdoors?",
+          question: "What is your goal for the wedding day?",
           answer:
-            "The ceremony will be held outdoors at the Waterfront Pergolas at Hyatt, so please dress appropriately for the weather. The reception will follow at Jade, Ruby, and Sapphire Room at Hyatt.",
+            "To truly enjoy the day with minimal responsibilities. We’ve arranged support through the venue and planning team to allow us and our loved ones to simply celebrate.",
         },
         {
-          question: "Are kids welcome?",
+          question: "What is most important to you on the wedding day?",
           answer:
-            "Unfortunately, this is an adults-only event unless prior approval has been granted.",
+            "To feel beautiful, embrace the joy of the day, and be surrounded by the people who have walked this path with us. We want our wedding party to enjoy the celebration stress-free.",
         },
         {
-          question: "Will there be food?",
+          question: "How will you ensure the day is happy and stress-free?",
           answer:
-            "Absolutely! There will be a cocktail hour with three hors d'oeuvres, followed by dinner.",
-        },
-        {
-          question: "Is there a vegetarian option?",
-          answer:
-            "Yes! A fish option will be available, or guests may enjoy a vegetarian meal with accompaniments and salads.",
-        },
-        {
-          question: "Will there be an open bar?",
-          answer:
-            "Yes! A variety of drinks will be served, including Baileys, wines, beers, and non-alcoholic beverages.",
+            "By understanding we can't control everything. We'll plan with love, prepare for changes, and communicate openly with our family and friends who are helping.",
         },
       ],
     },
     {
-      category: "Gifts & Registry",
+      category: "Ceremony & Reception",
       questions: [
         {
-          question: "Where are you registered?",
-          answer: (
-            <>
-              We are currently not registered with any specific store. However,
-              you can follow this link to our online gift registry:{" "}
-              <a
-                href="https://www.tyreeseandhaile.com/gifts"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Gift Registry
-              </a>
-              .
-            </>
-          ),
+          question: "What kind of food will be served?",
+          answer:
+            "All meals will be gluten-free and dairy-free. There will be no shellfish of any kind. We encourage everyone to relax and have a good time!",
         },
         {
-          question: "Can we give a monetary gift instead?",
+          question: "Will alcohol be served?",
           answer:
-            "Your presence is our greatest gift! However, if you'd like to contribute, we welcome monetary gifts via cash in an envelope on the day or after. Feel free to contact us at +1 (868) 390-3269 or +1 (246) 247-8979 for details about special gifts.",
-        },
-      ],
-    },
-    {
-      category: "Photos & Social Media",
-      questions: [
-        {
-          question: "Can we take photos during the ceremony?",
-          answer:
-            "We'd love for you to be fully present in the moment. However, you're welcome to take photos, but please minimize flash use and avoid obstructing our photographers.",
-        },
-        {
-          question: "Is there a wedding hashtag?",
-          answer:
-            "Yes! Please tag your photos with #TyreeseAndHaile2025. Connect with us on Instagram: @tyreese011 & @haileprescod",
-        },
-      ],
-    },
-    {
-      category: "Other Questions",
-      questions: [
-        {
-          question: "I have dietary restrictions. What should I do?",
-          answer:
-            "Please note any dietary restrictions on your RSVP card or contact us directly so we can accommodate your needs.",
-        },
-        {
-          question: "What should I do if I can't attend?",
-          answer:
-            "We'll miss you! Please RSVP with regrets so we know not to expect you.",
+            "Alcohol will not be provided, but it is not prohibited. Guests are welcome to celebrate responsibly in a way that feels right for them.",
         },
       ],
     },
@@ -193,6 +122,7 @@ const Faq = () => {
           </div>
         ))}
       </div>
+
       {/* Drink Menu Modal */}
       <Modal
         title="Wedding Drink Menu"

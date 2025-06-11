@@ -20,10 +20,18 @@ const OurStory = () => {
       content: (
         <>
           <p>
-            🌿Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-            autem expedita ducimus libero sapiente numquam consequatur qui.
-            Quibusdam animi illo nihil! Aliquam cum adipisci porro maxime
-            perspiciatis mollitia, ipsum minus.
+            Twelve years ago, fate brought us together and began a journey
+            neither of us could have predicted. Through seasons of joy and
+            moments of trial, our connection only grew stronger. Even in the
+            times we drifted apart, our hearts held tight to something
+            sacred—something unbreakable. We were, and are, each other’s home.
+          </p>
+          <p>
+            I’ll never forget the night in Thermopolis—of all places—when
+            laughter filled the air, and under a starlit sky, I fell into the
+            water only to be caught by you. It was silly, unexpected, and
+            perfect. That moment whispered forever, and every “I love you” since
+            has only deepened that truth.
           </p>
         </>
       ),
@@ -33,11 +41,17 @@ const OurStory = () => {
       content: (
         <>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas
-            delectus doloremque quo sit! Labore dicta aliquam deserunt veritatis
-            culpa in quibusdam ex nulla minus amet, enim animi sint voluptate
-            quo quasi quia, consequatur nisi natus eaque facere, nostrum error
-            a!
+            Our story didn’t follow a typical script. Instead of one magical
+            date, we built our love through years of shared laughter, quiet
+            conversations, and thousands of small, perfect moments. We grew up
+            together—learning, evolving, forgiving, and choosing each other
+            again and again.
+          </p>
+          <p>
+            There wasn’t just one “first date.” There were countless
+            beginnings—each one showing me that no one could ever understand me
+            the way you do. And through it all, you’ve remained the calm to my
+            chaos, the smile in my day, and the steady presence who grounds me.
           </p>
         </>
       ),
@@ -47,12 +61,18 @@ const OurStory = () => {
       content: (
         <>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil illo
-            quod autem! Ad quam, odit esse officiis quae illo modi vel ratione
-            ipsum vero iusto delectus ea facilis quod rerum. Eveniet magni iure,
-            nobis doloremque nihil magnam at voluptatum sit aut, pariatur eum
-            dignissimos cupiditate, commodi repellat. Reprehenderit, aliquam
-            repellendus!
+            With you, love is a river—steady, strong, and full of grace. It
+            carries us forward, heals wounds, dissolves fear, and makes space
+            for something new. Something holy. Through everything, you have seen
+            me—even when I struggled to see myself.
+          </p>
+          <p>
+            Scott, you are the love of my life. The peanut butter to my joke.
+            The calm to my chaos. My best friend and the one I will love and
+            honor all the days of my life. I vow to walk beside you through
+            every season, to let love lead us when we falter, and to choose you
+            again and again. With a promise written deep in my
+            soul—unconditionally, and for all time.
           </p>
         </>
       ),
@@ -77,13 +97,12 @@ const OurStory = () => {
             ></div>
             <div className="timeline-text">
               <h2 className="timeline-title">How We Met</h2>
-              <div className="timeline-date">May 2022</div>
               <div className="timeline-body">
                 <p>
-                  🌿 Lorem  aperiam, dolorem expedita veritatis
-                  adipisci repudiandae nisi amet mollitia eligendi quae tenetur
-                  non? Cupiditate pariatur impedit, ullam rem voluptatum
-                  possimus saepe laborum!..
+                  Twelve years ago, fate brought us together and began a journey
+                  neither of us could have predicted. Through seasons of joy and
+                  moments of trial, our connection only grew stronger. Even in
+                  the times we drifted apart...
                 </p>
                 <button
                   className="read-more"
@@ -103,19 +122,17 @@ const OurStory = () => {
             <div
               className="timeline-image"
               style={{
-                         backgroundImage: `url('https://i.imgur.com/ayfVgSu.jpeg')`,
-
+                backgroundImage: `url('https://i.imgur.com/AHnoxFX.jpeg')`,
               }}
             ></div>
             <div className="timeline-text">
               <h2 className="timeline-title">The First Date</h2>
-              <div className="timeline-date">July 5, 2024</div>
               <div className="timeline-body">
-               <p>
-                  🌿 Lorem  aperiam, dolorem expedita veritatis
-                  adipisci repudiandae nisi amet mollitia eligendi quae tenetur
-                  non? Cupiditate pariatur impedit, ullam rem voluptatum
-                  possimus saepe laborum!..
+                <p>
+                  Our story didn’t follow a typical script. Instead of one
+                  magical date, we built our love through years of shared
+                  laughter, quiet conversations, and thousands of small, perfect
+                  moments...
                 </p>
                 <button
                   className="read-more"
@@ -135,19 +152,16 @@ const OurStory = () => {
             <div
               className="timeline-image nalagiri"
               style={{
-                   backgroundImage: `url('https://i.imgur.com/ayfVgSu.jpeg')`,
-
+                backgroundImage: `url('https://i.imgur.com/0nl2l1M.jpeg')`,
               }}
             ></div>
             <div className="timeline-text">
               <h2 className="timeline-title">The Proposal</h2>
-              <div className="timeline-date">December 31, 2024</div>
               <div className="timeline-body">
                 <p>
-                  🌿 Lorem  aperiam, dolorem expedita veritatis
-                  adipisci repudiandae nisi amet mollitia eligendi quae tenetur
-                  non? Cupiditate pariatur impedit, ullam rem voluptatum
-                  possimus saepe laborum!..
+                  With you, love is a river—steady, strong, and full of grace.
+                  It carries us forward, heals wounds, dissolves fear, and makes
+                  space for something new. Something holy...
                 </p>
                 <button
                   className="read-more"

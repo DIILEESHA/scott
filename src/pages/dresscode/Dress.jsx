@@ -42,108 +42,52 @@ const DressCode = () => {
 
   const dressCodeSections = [
     {
-      question: "Dress Code",
+      question: "Our Dress Code Philosophy",
       answer: (
         <>
-          <p className="dress-code-intro">Sophisticated, Elegant Attire</p>
+          <p className="dress-code-intro">
+            We want you to feel completely yourself and fully at ease on our
+            special day. There’s no formal dress code for guests—whether you’re
+            drawn to something laid-back, vibrant, or a bit dressy, we welcome
+            it all.
+          </p>
         </>
       ),
     },
     {
-      question: "For Men",
+      question: "What We’ll Be Wearing",
       answer: (
         <>
-          <div className="guideline-section">
-            <ul className="kos">
-              <li>Tuxedo</li>
-              <li>Formal suit</li>
-              <li>Dress shirt with tie</li>
-            </ul>
-          </div>
+          <p>
+            Our wedding party will be in formal wedding attire, so you'll see
+            tuxes, gowns, and everything in between. But don’t let that guide
+            your outfit—wear what feels right for you.
+          </p>
         </>
       ),
     },
     {
-      question: "For Women",
+      question: "Dancing in the Grass",
       answer: (
         <>
-          <div className="guideline-section">
-            <ul className="kos">
-              <li>Evening gown</li>
-              <li>Refined cocktail dress</li>
-            </ul>
-          </div>
+          <p>
+            We’ll be celebrating outdoors, dancing on grass under the stars—so
+            feel free to kick off your heels, bring your comfiest flats, or even
+            go barefoot. This is a night for laughter and joy, not sore feet!
+          </p>
         </>
       ),
     },
     {
-      question: "Color Consideration",
+      question: "A Note from the Couple",
       answer: (
         <>
-          <div className="color-section">
-            <p>
-              Out of respect for the event's theme, please refrain from wearing
-              solid red.
-            </p>
-          </div>
+          <p>
+            The most important thing to us is having you there—comfortable,
+            smiling, and ready to celebrate. No fashion pressure. Come as you
+            are and let’s make it a night to remember.
+          </p>
         </>
-      ),
-    },
-    {
-      question: "Examples for Inspiration",
-      answer: (
-        <div className="inspiration-slider">
-          <Slider {...sliderSettings}>
-            <div className="slide-item">
-              <img
-                src="https://i.imgur.com/fukH1FR.jpeg"
-                alt="Formal black suit with bowtie"
-              />
-            </div>
-            <div className="slide-item">
-              <img
-                src="https://i.imgur.com/6OOQkLl.jpeg"
-                alt="Formal black suit with bowtie"
-              />
-            </div>{" "}
-            <div className="slide-item">
-              <img
-                src="https://i.imgur.com/nCYDv26.jpeg"
-                alt="Formal black suit with bowtie"
-              />
-            </div>{" "}
-            <div className="slide-item">
-              <img
-                src="https://i.imgur.com/W4nqcZU.jpeg"
-                alt="Formal black suit with bowtie"
-              />
-            </div>{" "}
-            <div className="slide-item">
-              <img
-                src="https://i.imgur.com/w5w76TE.jpeg"
-                alt="Formal black suit with bowtie"
-              />
-            </div>
-            <div className="slide-item">
-              <img
-                src="https://i.imgur.com/Y4e2Z9X.jpeg"
-                alt="Formal black suit with bowtie"
-              />
-            </div>{" "}
-            <div className="slide-item">
-              <img
-                src="https://i.imgur.com/sZANsBe.jpeg"
-                alt="Formal black suit with bowtie"
-              />
-            </div>{" "}
-            <div className="slide-item">
-              <img
-                src="https://i.imgur.com/BCE5zg7.jpeg"
-                alt="Formal black suit with bowtie"
-              />
-            </div>{" "}
-          </Slider>
-        </div>
       ),
     },
   ];
@@ -152,7 +96,8 @@ const DressCode = () => {
     <div className="faq_container">
       <div className="faq_cover mallika">
         <h2 className="faq_title" style={{ color: "#fff" }}>
-          Dress Code: Sophisticated Elegance
+            What to Wear & How to Feel
+
         </h2>
       </div>
 
