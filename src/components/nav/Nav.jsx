@@ -39,7 +39,6 @@ const Nav = () => {
 
         <div className="nav_sub">
           <ul className="nav_ul">
-
             <li className="nav_li">
               <Link to="/donate">donate</Link>
             </li>
@@ -70,12 +69,15 @@ const Nav = () => {
           <li onClick={toggleMobileMenu}>
             <Link to="/dress">What to wear</Link>
           </li>
+                     <li onClick={toggleMobileMenu}>
+
+              <Link to="/donate">donate</Link>
+            </li>
           <li onClick={toggleMobileMenu}>
             <Link to="/faq">FAQ</Link>
           </li>
-
           <li onClick={toggleMobileMenu}>
-            <Link to="/gifts">Registry</Link>
+            <Link to="/upload">Snap & Share</Link>
           </li>
           <li onClick={toggleMobileMenu}>
             <Link to="/rsvp">RSVP</Link>
