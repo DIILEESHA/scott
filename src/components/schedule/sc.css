@@ -11,7 +11,59 @@
   justify-content: center;
   position: relative;
 }
+.swiper-pagination-bullet-active {
+  background: #c97b5e;
+}
 
+.sc_sub {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 90px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dcx {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Arrows */
+.swiper_nav {
+  display: flex;
+  justify-content: space-between;
+
+  /* max-width: 200px; */
+}
+
+.prev-btn {
+  position: absolute;
+  z-index: 10;
+  left: 30px;
+}
+
+.next-btn {
+  position: absolute;
+  z-index: 10;
+  right: 30px;
+}
+
+.swiper-button {
+  background: #c97b5e;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.swiper-button:hover {
+  background: #a75d48;
+}
 .master {
   position: relative;
 }
@@ -66,6 +118,7 @@
 
 .event {
   font-family: "hel";
+  text-align: center;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -77,20 +130,20 @@
   .schedule_container {
     padding: 80px 30px;
   }
-  
+
   .sc {
     font-size: 38px;
     margin-bottom: 40px;
   }
-  
+
   .sc_title {
     font-size: 17px;
   }
-  
+
   .sc_time {
     font-size: 32px;
   }
-  
+
   .event {
     font-size: 17px;
   }
@@ -101,21 +154,21 @@
   .schedule_container {
     padding: 100px 40px;
   }
-  
+
   .sc_grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
   }
-  
+
   .sc {
     font-size: 45px;
     width: 85%;
   }
-  
+
   .sc_time {
     font-size: 36px;
   }
-  
+
   .event {
     font-size: 18px;
   }
@@ -126,21 +179,21 @@
   .schedule_container {
     padding: 120px 60px;
   }
-  
+
   .sc {
     font-size: 55px;
     width: 80%;
     margin-bottom: 50px;
   }
-  
+
   .sc_grid {
     grid-template-columns: repeat(3, 1fr);
   }
-  
+
   .sc_title {
     font-size: 18px;
   }
-  
+
   .sc_time {
     font-size: 40px;
   }
@@ -151,25 +204,25 @@
   .schedule_container {
     padding: 160px 80px;
   }
-  
+
   .sc {
     font-size: 65px;
     width: 70%;
   }
-  
+
   .sc_grid {
     grid-template-columns: repeat(4, 1fr);
   }
-  
+
   .sc_title {
     font-size: 19px;
     margin-bottom: 50px;
   }
-  
+
   .sc_time {
     margin-bottom: 20px;
   }
-  
+
   .event {
     font-size: 19px;
     line-height: 27px;
@@ -181,19 +234,19 @@
   .schedule_container {
     padding: 200px 100px;
   }
-  
+
   .sc {
     font-size: 80px;
   }
-  
+
   .sc_title {
     font-size: 24px;
   }
-  
+
   .sc_time {
     font-size: 50px;
   }
-  
+
   .event {
     font-size: 22px;
   }
@@ -204,7 +257,7 @@
   .schedule_container {
     padding: 100px 50px;
   }
-  
+
   .sc_grid {
     gap: 30px;
   }
@@ -215,11 +268,11 @@
   .schedule_container {
     padding: 80px 60px;
   }
-  
+
   .sc {
     margin-bottom: 30px;
   }
-  
+
   .sc_grid {
     gap: 30px;
   }

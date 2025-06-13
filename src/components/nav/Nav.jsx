@@ -44,7 +44,7 @@ const Nav = () => {
             </li>
 
             <li className="nav_li">
-              <Link to="/gifts">Registry</Link>
+              <Link to="/upload">Snap & Share</Link>
             </li>
             <li className="nav_li mafia">
               <Link to="/rsvp">RSVP</Link>

@@ -18,7 +18,7 @@ import ScrollToTop from "../ScrollToTop";
 import GiftRegistry from "./pages/GiftRegistry"; // New import
 import ProductForm from "./components/GiftRegistry/ProductForm";
 import OurStory from "./components/OurStory";
-
+import Upload from "./pages/faq/Upload";
 // Homepage Component
 const Home = () => {
   return (
@@ -47,14 +47,13 @@ const AppContent = () => {
         <Route path="/faq" element={<Faq />} />
         <Route path="/rsvp" element={<Rsvp />} />
         <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/gifts" element={<GiftRegistry />} />
+        <Route path="/upload" element={<Upload />} />
 
         <Route path="/product-form" element={<ProductForm />} />
       </Routes>
       {!isAdminPage && (
         <footer className="footer">
-        
-            <div className="copyright">© 2025 Scott & Mary</div>
+          <div className="copyright">© 2025 Scott & Mary</div>
         </footer>
       )}
     </>

@@ -3,6 +3,60 @@
   --accent-color: #171511;
 }
 
+.aa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bc);
+  padding-top: 100px;
+}
+.dot {
+  display: flex;
+  /* margin-top: -100px; */
+  flex-direction: column;
+  align-items: center;
+  min-height: 50vh;
+  height: auto;
+  padding: 0;
+  justify-content: center;
+}
+.faq_subtext {
+  width: 60%;
+  text-align: center;
+  line-height: 150%;
+  margin-bottom: 20px;
+  font-family: "hel";
+}
+.nadi {
+  display: flex;
+  flex-direction: column;
+}
+.zz {
+  width: 300px;
+  object-fit: contain;
+}
+.upload_button {
+  color: #fff;
+}
+.delta {
+  display: flex;
+  background-color: var(--bc);
+  padding:40px 0 ;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.xs {
+  z-index: 10;
+  padding: 15px 20px;
+  cursor: pointer;
+  color: #f8f7f5;
+  font-size: 16px;
+  font-family: "hel";
+  background-color: #171511;
+  width: fit-content;
+}
+
 @font-face {
   font-family: "silk";
   src: url("./fonts/silk.ttf") format("opentype");
@@ -181,14 +235,16 @@ li {
     gap: 1.5rem;
     align-items: center;
   }
-
+.faq_subtext{
+  width: 90%;
+}
   .footer-divider {
     transform: rotate(90deg);
     margin: 0.1rem 0;
     /* display: none; */
   }
 
-  .instagram-profiles{
+  .instagram-profiles {
     margin-bottom: 0;
     gap: 0;
   }
