@@ -6,25 +6,23 @@ const Registry = () => {
     <div className="registry_container">
       <div className="r_grid">
         <div className="r_sub">
-          <h2 className="r_title">Support the bride and groom</h2>
-          <div class="image-wrapper">
+          <h2 className="r_title">Let Us Know You're Coming!</h2>
+          <div className="image-wrapper">
             <img
-              src="https://ik.imagekit.io/fh2hj1ayv/website%20registry.jpg?updatedAt=1747553143737"
-              alt=""
+              src="https://www.adornbridal.com/hs-fs/hubfs/wedding%20rsvp.jpg?width=2500&name=wedding%20rsvp.jpg"
+              alt="RSVP"
               className="r_img"
             />
           </div>
 
           <p className="jio">
-            While your presence at our wedding is the greatest gift, if you wish
-            to share in our joy through a gift, please visit our registry.
+            We're so excited to celebrate with you! Please take a moment to RSVP
+            and let us know if you'll be joining us for our special day.
           </p>
+
           <button className="rsvp_btn">
-            <Link
-              to="/gifts"
-              style={{ color: "#fff", textDecoration: "none" }}
-            >
-              registry
+            <Link to="/rsvp" style={{ color: "#fff", textDecoration: "none" }}>
+              RSVP
             </Link>
           </button>
         </div>

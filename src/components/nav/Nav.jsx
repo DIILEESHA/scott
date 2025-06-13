@@ -69,10 +69,9 @@ const Nav = () => {
           <li onClick={toggleMobileMenu}>
             <Link to="/dress">What to wear</Link>
           </li>
-                     <li onClick={toggleMobileMenu}>
-
-              <Link to="/donate">donate</Link>
-            </li>
+          <li onClick={toggleMobileMenu}>
+            <Link to="/donate">donate</Link>
+          </li>
           <li onClick={toggleMobileMenu}>
             <Link to="/faq">FAQ</Link>
           </li>
