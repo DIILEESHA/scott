@@ -39,6 +39,10 @@ const Nav = () => {
 
         <div className="nav_sub">
           <ul className="nav_ul">
+
+            <li className="nav_li">
+              <Link to="/donate">donate</Link>
+            </li>
             <li className="nav_li">
               <Link to="/faq">FAQ</Link>
             </li>

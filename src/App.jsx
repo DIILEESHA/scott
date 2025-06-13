@@ -19,6 +19,7 @@ import GiftRegistry from "./pages/GiftRegistry"; // New import
 import ProductForm from "./components/GiftRegistry/ProductForm";
 import OurStory from "./components/OurStory";
 import Upload from "./pages/faq/Upload";
+import Donate from "./pages/faq/Donate";
 // Homepage Component
 const Home = () => {
   return (
@@ -48,6 +49,7 @@ const AppContent = () => {
         <Route path="/rsvp" element={<Rsvp />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/upload" element={<Upload />} />
+        <Route path="/donate" element={<Donate />} />
 
         <Route path="/product-form" element={<ProductForm />} />
       </Routes>
